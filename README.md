@@ -4,8 +4,8 @@
 
 ![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4?logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-5.7%2B-4479A1?logo=mysql&logoColor=white)
-![No Framework](https://img.shields.io/badge/Framework-None-9cf)
-![License](https://img.shields.io/badge/License-MIT-green)
+![无框架](https://img.shields.io/badge/Framework-None-9cf)
+![许可](https://img.shields.io/badge/License-MIT-green)
 
 动态 文章 单页混排成一条时间流 带评论 点赞 标签 广告位和一套完整后台 移动端优先 PC前台适应差
 
@@ -134,11 +134,11 @@ git clone https://github.com/PearBlossomPoetry/yuntingji-moments.git
 Apache 随包提供 `.htaccess` 无需额外配置 Nginx 参考：
 
 ```nginx
-rewrite ^/([a-zA-Z0-9_-]+)\.html$ /article.php?slug=$1 last;
-location / { try_files $uri $uri/ /index.php?$query_string; }
+rewrite ^/（[a-zA-Z0-9_-]+）\.html$ /article.php？slug=$1 last;
+location / { try_files $uri $uri/ /index.php？$query_string; }
 
-location ~* \.(env|ini|log|sql|bak|zip|gz|rar)$ { deny all; }
-location ~ /\. { deny all; }
+位置 ~* \。（env|ini|log|sql|Bak|zip|gz|rar）$ { deny all; }
+位置 ~ /\。{ 否认一切;}
 ```
 
 ---
@@ -147,67 +147,67 @@ location ~ /\. { deny all; }
 
 ```ini
 upload_max_filesize = 100M
-post_max_size       = 100M
-max_execution_time  = 300
-memory_limit        = 256M
+post_max_size = 100M
+max_execution_time = 300
+memory_limit = 256M
 ```
 
 程序内限制：图片 20 MB 视频 100 MB（`api/upload.php` 可改）
 
-上传仍失败的排查顺序：`uploads/` 权限 → `fileinfo` 扩展 → PHP 上传上限 → 主机是否拦截 `multipart`
+上传仍失败的排查顺序：`上传/` 权限 → `文件信息` 扩展 → PHP 上传上限 → 主机是否拦截 `多部分`
 
 ---
 
 ### ❓ 常见问题
 
-<details>
-<summary><b>点「前往安装」报 403</b></summary>
+<详情>
+<摘要><b>点「前往安装」报 403</b></摘要>
 
-本版已移除 `.htaccess` 里对 `install/` 的整目录拦截 若仍 403 检查主机安全插件是否拦截该目录 或 Apache 未开启 `AllowOverride`
-</details>
+本版已移除 `.htaccess` 里对 `安装/` 的整目录拦截 若仍 403 检查主机安全插件是否拦截该目录 或 Apache 未开启 `AllowOverride`
+</详情>
 
-<details>
-<summary><b>提示数据库连接失败</b></summary>
+<详情>
+<摘要><b>提示数据库连接失败</b></摘要>
 
 检查根目录 `db.config.php` 中的地址、账号、密码、库名 并确认服务器装了 `mysqli` 扩展
-</details>
+</详情>
 
-<details>
-<summary><b>首页正常但文章链接 404</b></summary>
+<详情>
+<摘要><b>首页正常但文章链接 404</b></摘要>
 
 伪静态没生效 Apache 检查 `mod_rewrite` 与 `AllowOverride`Nginx 加上文规则。
-</details>
+</详情>
 
-<details>
-<summary><b>忘记后台密码</b></summary>
+<详情>
+<摘要><b>忘记后台密码</b></摘要>
 
-```bash
+```砰
 php -r "echo password_hash('新密码', PASSWORD_DEFAULT);"
 ```
 
 然后执行：`UPDATE admin SET password = '哈希值' WHERE username = '账号';`
-</details>
+</详情>
 
-<details>
-<summary><b>换域名后页面里还是旧域名</b></summary>
+<详情>
+<摘要><b>换域名后页面里还是旧域名</b></摘要>
 
-站点域名写在多个文件的链接与 `placeholder` 里 全局搜索替换即可：`grep -rn "旧域名" .`
-</details>
+站点域名写在多个文件的链接与 `占位符` 里 全局搜索替换即可：`grep -rn "旧域名" .`
+</详情>
 
 ---
 
 ### 🛡 安全建议
 
-- 装完删除 `install/` 目录
+- 装完删除 `安装/` 目录
 - 修改 `unban_me.php` 中的访问密钥
-- `admin/` 目录可改名；`.htaccess` 已拦截 `.sql`、`.zip` 等敏感文件 Nginx 需按上文补规则
-- 定期备份数据库与 `uploads/`
+- `管理员/` 目录可改名；`.htaccess` 已拦截 `.sql`、`.zip` 等敏感文件 Nginx 需按上文补规则
+- 定期备份数据库与 `上传/`
 
 ---
 
 ### 📄 许可
 
-[MIT](LICENSE) · 可商用、可修改、可再分发 保留版权声明即可
+[麻省理工学院](许可证) · 可商用、可修改、可再分发 保留版权声明即可
 
 ---
 
@@ -215,4 +215,4 @@ php -r "echo password_hash('新密码', PASSWORD_DEFAULT);"
 
 - 版本：`1.5.0`
 - 技术栈：PHP + MySQL 原生实现 无第三方运行时依赖
-- 反馈：此版已停止维护 感兴趣可加QQ群聊：1134371175
+- 反馈：此版已停止维护
